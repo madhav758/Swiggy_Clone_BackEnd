@@ -30,6 +30,8 @@ export async function register(req, res) {
 export async function login(req, res) {
     try {
         let { email, password } = req.body
+
+
         const data = await userModel.findOne({ email });
         if (!data) {
             return res.status(409).json({ message: "user doesnot exists" })
